@@ -27,6 +27,8 @@ const postAppointmentController= require("./controllers/post_appointment");
 
 const app= new express();
 global.loggedIn = null;
+global.checkUserType=null;
+global.checkUserTypeAdmin=null;
 
 app.use(expressSession({secret: "kaur21", 
 resave: false,
@@ -70,6 +72,12 @@ app.post("/users/signup", redirectIfAuth, signupController);
 app.post("/users/login", redirectIfAuth, loginController);
 
 app.post("/post/appointment",postAppointmentController);
+
+app.get("/signout",async(req, res) => {
+  global.checkUserType = null;
+  req.session.userId = null;
+  res.render("login");
+});
 
 app.listen(4000,()=>{
     console.log("listen 4000");

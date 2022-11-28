@@ -8,25 +8,24 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto py-4 py-lg-0">
                
-              
-                <% if (!loggedIn) { %>
+                <% if(global.checkUserType=="Driver"){ %>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/dashboard">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/g">G test</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/g2">G2 test </a></li>
+                <% } %>
+                    
+                <% if(global.checkUserType=="Admin"){ %>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/appointments">Appointments</a></li>
+                <% } %>
+
+                <% if (!loggedIn && global.checkUserType==null) { %>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/signup">Sign Up</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/login">Login</a></li>
-                <%} else {%>
-
-                    <% if(checkUserType){ %>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/dashboard">Dashboard</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/g">G test</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/g2">G2 test </a></li>
-                    <% } else{ %>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/appointments">Appointments</a></li>
-                    <% } %>
-
-                    
-                  
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Sign Out</a></li>
+                     <%} else {%>                 
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/signout">Sign Out</a></li>
                 <% } %>
-            </ul>
+
+            
         </div>
     </div>
 </nav>

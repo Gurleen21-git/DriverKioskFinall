@@ -1,6 +1,7 @@
 const bcrypt = require("bcrypt");
+const checkUserType = require("../middlewares/checkUserType");
 const User = require("../models/User");
-global.checkUserType=Boolean;
+
 
 module.exports = (req,res)=> {
     
@@ -8,18 +9,14 @@ module.exports = (req,res)=> {
 
     User.findOne({username:username}, (error, user)=>{
         if(user){
-            req.session="";
+          
              bcrypt.compare(password, user.password, (error, same)=> {
                 if(same){
-                    //TODO:: Store User in session
+                  
                     req.session.UserModel=user;
                     req.session.userId = user._id;
-                    if(user.userType==="Driver"){
-                        checkUserType=true;
-                    }
-                    else{
-                        checkUserType=false;
-                    }
+                    global.loggedIn=true;
+                    global.checkUserType=user.userType;
                     res.redirect("/dashboard");
 
                     
