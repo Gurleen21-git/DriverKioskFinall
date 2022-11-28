@@ -7,6 +7,9 @@ module.exports = (req, res, next)=> {
         res.render('g2');
         
     }
+    else if(req.session.userType=="Admin"){
+        res.render('appointment');
+    }
     else{
         res.redirect('/login');
     }

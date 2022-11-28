@@ -8,6 +8,7 @@ module.exports = (req,res)=> {
 
     User.findOne({username:username}, (error, user)=>{
         if(user){
+            req.session="";
              bcrypt.compare(password, user.password, (error, same)=> {
                 if(same){
                     //TODO:: Store User in session
