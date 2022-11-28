@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+   
+    <%- include("layouts/header") -%> 
+    <body>
+        <!-- Navigation-->
+        <%- include("layouts/navbar") -%> 
+      
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/img/gtest.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>G Test</h1>
+                            <span class="subheading">This is another step to getting your license.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <% if (g2Details) {%> 
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <!-- <form method="POST" action="/g/post" >
+                            
+                            <div class="form-floating">
+                                <input class="form-control" id="licensenumber" name="licensenumber" type="text" placeholder="Enter your License Number..." />
+                                <label for="licensenumber">License Number</label>
+                                
+                            </div>
+                            <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Submit</button>
+                        </form> -->
+
+                        <form method="POST" action="/g/post">
+                   
+                             <!-- Personal Information fiels -->
+                            <h5>Personal Information</h5>
+                            <div class="form-floating">
+                                <input class="form-control" id="firstname" name="firstname" value="<%= g2Details.firstname %>"
+                                 type="text" placeholder="Enter your firstname..." disabled/>
+
+                                <label for="firstname">First Name</label>
+                                
+                            </div>
+                            <div class="form-floating">
+                                <input class="form-control" id="lastname" name="lastname" value="<%= g2Details.lastname %>"
+                                 type="text" placeholder="Enter your lastname..." disabled />
+                                <label for="lastname">Last Name</label>
+
+                            </div>
+                            <div class="form-floating">
+                                <input class="form-control" id="age" name="age" value="<%= g2Details.age %>"
+                                 type="number" placeholder="Enter your phone Age..." disabled/>
+                                <label for="age">Age</label> 
+                            </div>
+                            <div class="form-floating">
+                                <input class="form-control" id="licensenumber" name="licensenumber" value="<%= g2Details.licensenumber %>"
+                                 type="text" placeholder="Enter your phone License Number..." disabled />
+                                <label for="licensenumber">License Number</label> 
+                            </div>
+                           
+                            <div class="form-floating">
+                                <input class="form-control" id="DOB" name="DOB" value="<%= g2Details.DOB %>"
+                                 type="date" placeholder="Enter your phone DOB..."  disabled/>
+                                <label for="DOB">DOB</label> 
+                            </div>
+
+                            <br>
+                            <!-- Car details fields -->
+                            <h5>Car Details </h5>
+                            <div class="form-floating">
+                                <input class="form-control" id="carmake" name="carmake"  value="<%= g2Details.carmake %>"
+                                type="text" placeholder="Enter your phone Car Make..." />
+                                <label for="carmake">Car Make</label> 
+                            </div>
+                            <div class="form-floating">
+                                <input class="form-control" id="carmodel" name="carmodel" value="<%= g2Details.carmodel %>"
+                                 type="text" placeholder="Enter your phone Car Model..." />
+                                <label for="carmodel">Car Model</label> 
+                            </div>
+                            <div class="form-floating">
+                                <input class="form-control" id="manufacturedyear" name="manufacturedyear" value="<%= g2Details.manufacturedyear %>"
+                                 type="text" placeholder="Enter your phone Manufactured Year..." />
+                                <label for="manufacturedyear">Manufactured Year</label> 
+                            </div>
+                            <div class="form-floating">
+                                <input class="form-control" id="platenumber" name="platenumber" value="<%= g2Details.platenumber %>"
+                                 type="text" placeholder="Enter your phone Car Plate Number..." />
+                                <label for="platenumber">Car Plate Number</label> 
+                            </div>
+                         
+                            <br />
+
+                            <!-- Submit Button-->
+                            <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Update</button>
+                           
+
+                        </form>
+                    </div>
+                    <% } %> 
+                </div>
+            </div>
+        </main>
+        <!-- Footer-->
+        
+        <%- include("layouts/footer") -%> 
+
+        <!-- scripts-->
+        <%- include("layouts/script") -%> 
+     
+    </body>
+</html>

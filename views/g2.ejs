@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("layouts/header") -%> 
+    <body>
+        <!-- Navigation-->
+        <%- include("layouts/navbar") -%> 
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/img/contact-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>G2 Test</h1>
+                            <span class="subheading">Fill in your details and book now.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        
+                        <div class="my-5">
+                           
+                            <form  method="POST" action="/g2/post">
+
+                                <!-- Personal Information fiels -->
+                                <h5>Personal Information</h5>
+                                <div class="form-floating">
+                                    <input class="form-control" id="firstname" name="firstname" type="text" placeholder="Enter your firstname..." />
+                                    <label for="firstname">First Name</label>
+                                    
+                                </div>
+                                <div class="form-floating">
+                                    <input class="form-control" id="lastname" name="lastname" type="text" placeholder="Enter your lastname..."  />
+                                    <label for="lastname">Last Name</label>
+
+                                </div>
+                                <div class="form-floating">
+                                    <input class="form-control" id="age" name="age" type="number" placeholder="Enter your phone Age..." />
+                                    <label for="age">Age</label> 
+                                </div>
+                                <div class="form-floating">
+                                    <input class="form-control" id="licensenumber" name="licensenumber" type="text" placeholder="Enter your phone License Number..." />
+                                    <label for="licensenumber">License Number</label> 
+                                </div>
+                               
+                                <div class="form-floating">
+                                    <input class="form-control" id="DOB" name="DOB" type="date" placeholder="Enter your phone DOB..." />
+                                    <label for="DOB">DOB</label> 
+                                </div>
+
+                                <br>
+                                <!-- Car details fields -->
+                                <h5>Car Details </h5>
+                                <div class="form-floating">
+                                    <input class="form-control" id="carmake" name="carmake" type="text" placeholder="Enter your phone Car Make..." />
+                                    <label for="carmake">Car Make</label> 
+                                </div>
+                                <div class="form-floating">
+                                    <input class="form-control" id="carmodel" name="carmodel" type="text" placeholder="Enter your phone Car Model..." />
+                                    <label for="carmodel">Car Model</label> 
+                                </div>
+                                <div class="form-floating">
+                                    <input class="form-control" id="manufacturedyear" name="manufacturedyear" type="text" placeholder="Enter your phone Manufactured Year..." />
+                                    <label for="manufacturedyear">Manufactured Year</label> 
+                                </div>
+                                <div class="form-floating">
+                                    <input class="form-control" id="platenumber" name="platenumber" type="text" placeholder="Enter your phone Car Plate Number..." />
+                                    <label for="platenumber">Car Plate Number</label> 
+                                </div>
+                             
+                                <br />
+
+                                <div class="form-floating">
+                                    <input class="form-control" id="SIN" name="SIN" type="text" placeholder="Enter your SIN..." />
+                                    <label for="SIN">SIN Number</label> 
+                                </div>
+
+                                <br>
+                                
+                                <h5>Appointment Slots</h5>
+
+                                    
+                                <div class="form-floating flex">
+                                    <input class="form-control" id="apptDate" name="apptDate" value="<%=appointmentModel[0].apptDate %>" type="date" placeholder="Choose your date..." />
+                                    <label for="apptDate">Appointment Date</label>
+                                </div>
+
+                                <div class="form-floating flex">
+                                    <select name="apptTime" id="apptTime">
+                                        <%
+                                        for ( var i = 0; i < appointmentModel.length; i++ )
+                                        {
+                                            var selected = ( appointmentModel[i].disabled === true ) ? "disabled" : "";
+                                            %><option value="<%=appointmentModel[i].apptTime %>" <%=selected %>><%=appointmentModel[i].apptTime %></option><%
+                                        }
+                                        %> 
+                                      </select>
+                                </div>
+                               
+
+                                <!-- Submit Button-->
+                                <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Send</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Footer-->
+        <%- include("layouts/footer") -%> 
+
+        <!-- scripts-->
+        <%- include("layouts/script") -%> 
+    </body>
+</html>
